@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seleccion</title>
+</head>
+<body>
+    <form th:action="@{/validar}" method="POST" th:object="${product}">
+        <label>Product</label><br>
+
+        <th><select name="list" id="list" th:field="*{id}">
+            <option th:each="p: ${productList}" th:value="${p.id}" th:text="${p.name}">
+            </option>
+        </select></th>
+        <br>
+        <label for="quantity">Cantidad: </label><br>
+        <input type="text" name="quantity" id="quantity" th:field="*{quantity}">
+        <br>
+        <input type="submit" value="Send">
+    </form>
+</body>
+</html>
